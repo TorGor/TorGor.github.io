@@ -3,3 +3,9 @@
 .sass-cache
 Gemfile.lock
 _site
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
