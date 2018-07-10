@@ -11,18 +11,18 @@ display_footer: inital  #change this to 'none' if you want to hide the footer co
 parallax_image_one: assets/images/startup3.jpg # These are the images used for the parallax background
 parallax_image_two: assets/images/startup3.jpg
 
-project_one: "First Project"
+project_one: "SPRING CLOUD + SPRING BOOT 2.0"
 project_one_description: You know that,spring cloud is awesome！You can use it happy to start a circle project like microservice .Oh, My English is so so bad. So ...forget the wrong with words.Now let us start with it！ Go ...
 project_one_url: https://github.com/TorGor/spring-cloud-microservice-cluster
 project_one_icon: location_on
 
-project_two: Second Project
+project_two: SPRING-CLOUD-MICROSERVICE-CLUSTER
 project_two_description: This is a project for spring cloud！
 project_two_url: https://github.com/TorGor/spring-cloud-microservice-cluster
 project_two_icon: photo_camera
 
 
-project_three: Third Project
+project_three: SPRING-CLOUD-MICROSERVICE-CLUSTER
 project_three_description: Describe your project!
 project_three_url: https://github.com/TorGor/spring-cloud-microservice-cluster
 project_three_icon: hotel
