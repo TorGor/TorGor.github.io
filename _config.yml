@@ -1,7 +1,7 @@
 title: ONEPIECE
 name: Holy
 email: holyplace@163.com
-description: 你的梦想是什么？稍等会，我想想...
+description: 你的梦想是什么？Emm.....ONEPIECE!
 
 baseurl: "/blog"
 url: ""
@@ -11,7 +11,7 @@ display_footer: inital  #change this to 'none' if you want to hide the footer co
 parallax_image_one: assets/images/startup3.jpg # These are the images used for the parallax background
 parallax_image_two: assets/images/startup3.jpg
 
-project_one: "SPRING CLOUD + SPRING BOOT 2.0"
+project_one: SPRING CLOUD + SPRING BOOT 2.0
 project_one_description: You know that,spring cloud is awesome！You can use it happy to start a circle project like microservice .Oh, My English is so so bad. So ...forget the wrong with words.Now let us start with it！ Go ...
 project_one_url: https://github.com/TorGor/spring-cloud-microservice-cluster
 project_one_icon: location_on
@@ -33,7 +33,7 @@ project_four_description: Describe your project!
 project_four_url: https://github.com/TorGor/spring-cloud-microservice-cluster
 project_four_icon: restaurant
 
-portfolio_heading: Portfolio
+portfolio_heading: Projects
 portfolio_type: cards
 
 syntax_highlighting: true
@@ -146,8 +146,8 @@ colored: colored # Leave blank for black and white icons
 
 project_button: Github
 
-github: https://torgor.github.io/
-medium: https://torgor.github.io/
+github: https://github.com/TorGor
+medium: https://github.com/TorGor
 
 baseurl: # if your site is located at /blog or /home, enter it here, otherwise leave it empty
 url: http://localhost:4000/ #the url of your site
