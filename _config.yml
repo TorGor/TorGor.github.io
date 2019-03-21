@@ -1,19 +1,19 @@
 # Site settings
-name: Blog
+name: Less Or More
 email: holyplace@163.com
-author: Zhiyuan.Gao
-url: http://www.hifreud.com
-resume_site: http://TorGor.github.io
+author: Holy place
+url: http://www.bolocloud.com
+resume_site: http://www.hifreud.com/Resume.io/
 github: https://github.com/TorGor/
-baseurl: "/LessOrMore"
+#baseurl: "/LessOrMore"
 description: Actually, less is more!
-meta_description: holy place：在技术的大道中开拓前行
-motto: Cool.
-banner: 开拓前行
+meta_description: holy:技术大道上开拓前进！
+motto: It's our wits that make us men.
+banner: 技术控
 
 #permalink: /:categories/:year/:month/:day/:title/
 permalink: /:year/:month/:day/:title/
-paginate: 8
+paginate: 10
 
 exclude: ['README.md', 'Gemfile.lock', 'Gemfile', 'Rakefile']
 
