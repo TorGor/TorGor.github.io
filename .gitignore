@@ -1,8 +1,5 @@
-*.gem
-.bundle
-.sass-cache
-Gemfile.lock
-_site
+target/
+!.mvn/wrapper/maven-wrapper.jar
 
 ### IntelliJ IDEA ###
 .idea
