@@ -1,12 +1,4 @@
-# LessOrMore
-
-
-致谢
-===
-+ 感谢[Less官网](http://lesscss.cn/)的样式，本Jekyll框架的样式都是基于Less官网的样式直接拷贝过来的。只是重构了JS，并且加入了Jekyll语法而已。
-+ 感谢[Github](https://github.com/)提供的代码维护和发布平台
-+ 感谢[Jekyll](https://jekyllrb.com/)团队做出如此优秀的产品
-+ 感谢[Solar](https://github.com/mattvh/solar-theme-jekyll)的原作者[Matt Harzewski](http://www.webmaster-source.com/)，在`2014.11`-`2016.09`的两年间，我的博客选用了此样式模版
+# Holy
 
 
 使用
@@ -114,13 +106,21 @@ jekyll server
 关于作者
 ====================================
 
-热爱开源，热爱折腾的Java程序猿。更多个人信息和联系方式可以参照[我的简介](http://www.hifreud.com/Resume.io/)。
+热爱开源，热爱折腾的程序猿，努力成为全栈猿。
+联系方式：
++ 邮箱：holyplace@163.com
 
-写在最后
-====================================
 
-如果你也像我一样在寻觅一个简洁的博客主题。不妨试下LessOrMore。
 
-之前此处是有打赏功能的，不过最近在整理自己，发现打赏功能偏离了我写这个Jekyll主题的初衷，所以删除了打赏功能。
 
-非常感谢之前打赏过的朋友们！！
+
+致谢
+===
++ 感谢[Less官网](http://lesscss.cn/)的样式，本Jekyll框架的样式都是基于Less官网的样式直接拷贝过来的。只是重构了JS，并且加入了Jekyll语法而已。
++ 感谢[Github](https://github.com/)提供的代码维护和发布平台
++ 感谢[Jekyll](https://jekyllrb.com/)团队做出如此优秀的产品
+
+下载
+---
+
+使用git从[LessOrMore](https://github.com/luoyan35714/LessOrMore.git)主页下载项目
