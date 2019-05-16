@@ -3,7 +3,7 @@ layout: post
 title:  centos 定时任务
 date:   2018-08-24 00:00:00 +0800
 categories: document
-tag: centos , 教程
+tag: centos
 ---
 
 * content
