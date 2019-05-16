@@ -16,7 +16,9 @@ tag: centos , 教程
 `yum install crontabs `
 
 `systemctl enable crond ` （设为开机启动）
-`systemctl start crond`（启动crond服务） 
+
+`systemctl start crond`（启动crond服务）
+ 
 `systemctl status crond `（查看状态） 
 
 
