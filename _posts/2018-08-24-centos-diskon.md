@@ -64,13 +64,12 @@ tag: centos
 
 `ll`
 
-
 挂载卷到 /data 目录：
 
 `mount /dev/sdb1 /data`
 
-
 `vi /etc/fstab`
+
 添加一行 
 
 `/dev/sda1               /data                   ext4    defaults        1 1`
