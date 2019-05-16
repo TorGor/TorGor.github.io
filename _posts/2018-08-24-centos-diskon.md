@@ -37,13 +37,13 @@ tag: centos
 +	Ignore
 +	P
 
-![/styles/images/centos/diskon/finddisks.png]({{ '/styles/images/centos/diskon/finddisks.png' | prepend: site.baseurl  }})
+![/styles/images/centos/diskon/parted-cmd.png]({{ '/styles/images/centos/diskon/parted-cmd.png' | prepend: site.baseurl  }})
 
 查看分区：
 
 `fdisk -l `
 
-![/styles/images/centos/diskon/finddisks.png]({{ '/styles/images/centos/diskon/finddisks.png' | prepend: site.baseurl  }})
+![/styles/images/centos/diskon/fdisk-l.png]({{ '/styles/images/centos/diskon/fdisk-l.png' | prepend: site.baseurl  }})
 
 
 
@@ -74,6 +74,7 @@ tag: centos
 添加一行 
 
 `/dev/sda1               /data                   ext4    defaults        1 1`
+
 ![/styles/images/centos/diskon/vim-fstab.png]({{ '/styles/images/centos/diskon/vim-fstab.png' | prepend: site.baseurl  }})
 
 
