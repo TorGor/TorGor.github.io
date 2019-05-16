@@ -42,6 +42,7 @@ tag: centos
 查看分区：
 
 `fdisk -l `
+
 ![/styles/images/centos/diskon/finddisks.png]({{ '/styles/images/centos/diskon/finddisks.png' | prepend: site.baseurl  }})
 
 
