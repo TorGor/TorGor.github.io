@@ -1,9 +1,9 @@
 ---
 layout: post
 title:  centos 定时任务
-date:   2017-08-24 00:00:00 +0800
+date:   2018-08-24 00:00:00 +0800
 categories: document
-tag: centos 
+tag: centos , 教程
 ---
 
 * content
