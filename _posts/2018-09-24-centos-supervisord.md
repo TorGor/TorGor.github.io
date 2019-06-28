@@ -10,73 +10,68 @@ tag: centos
 {:toc}
 
 
-安装 crontabs 并自启动			{#install-crontabs}
+安装：			{#install}
 ===
 
-`yum install crontabs `
-
-`systemctl enable crond ` （设为开机启动）
-
-`systemctl start crond`（启动crond服务）
- 
-`systemctl status crond `（查看状态） 
+`pip install supervisor `
 
 
-自定义shell		{#my-shell}
+
+生成配置文件：		{#my-shell}
 ===
 
-`touch certbot.sh`
+`echo_supervisord_conf > /etc/supervisord.conf`
 
 
-    #! /bin/bash 
-    certbot renew  
-    echo "Certbot renew -- crontabs run"
-
-
-
-用户自定义定时任务	{#my-shell}
+启动	    {#start}
 ===
 
-`vi /etc/crontab `
-
-可以看到： 
-
-    Example of job definition: 
-    .---------------- minute (0 - 59) 
-    | .------------- hour (0 - 23) 
-    | | .---------- day of month (1 - 31) 
-    | | | .------- month (1 - 12) OR jan,feb,mar,apr ... 
-    | | | | .---- day of week (0 - 6) (Sunday=0 or 7) OR sun,mon,tue,wed,thu,fri,sat 
-    | | | | | 
-    * * * * * user-name command to be executed 
-    
-
-解释： 
-
-   分钟(0-59) 小时(0-23) 日(1-31) 月(11-12) 星期(0-6,0表示周日) 用户名 要执行的命令
-+ `*/30 * * * root /usr/local/mycommand.sh `(每天，每30分钟执行一次 mycommand命令)
-+ `* 3 * * * root /usr/local/mycommand.sh` (每天凌晨三点，执行命令脚本，PS:这里由于第一个的分钟没有设置，那么就会每天凌晨3点的每分钟都执行一次命令)
-+ `0 3 * * * root /usr/local/mycommand.sh` (这样就是每天凌晨三点整执行一次命令脚本)
-+ `*/10 11-13 * * * root /usr/local/mycommand.sh` (每天11点到13点之间，每10分钟执行一次命令脚本，这一种用法也很常用)
-+ `10-30 * * * * root /usr/local/mycommand.sh` (每小时的10-30分钟，每分钟执行一次命令脚本，共执行20次)
-+ `10,30 * * * * * root /usr/local/mycommand.sh` (每小时的10,30分钟，分别执行一次命令脚本，共执行2次）
+`supervisord -c /etc/supervisord.conf`
 
 
-保存生效	{#save}
+查看是否运行 {#viewstatus}
+===
+`ps aux | grep supervisord`
+
+配置 
+===
+`vim /etc/supervisord.conf` 
+
+添加如下内容：
+
+```
+[include]
+files=/etc/supervisor/*.conf #若你本地无/etc/supervisor目录，请自建
+cd /etc/supervisor
+```
+
+以ss为例，写一个守护线程：
 ===
 
-加载任务,使之生效：
+`vim /etc/supervisor/shadowsocks.conf`
 
-`crontab /etc/crontab`
+```
+[program:shadowsocks]
+	command = ssserver -c /etc/shadowsocks.json
+	user = root
+	autostart = true
+	autoresart = true
+	stderr_logfile = /var/log/supervisor/ss.stderr.log
+	stdout_logfile = /var/log/supervisor/ss.stdout.log
+	
+```
+重新加载配置：
+`supervisorctl reload`
 
-查看任务：
+命令 
+===
 
-`crontab -l `
+supervisord : 启动
+supervisorctl reload :修改完配置文件后重新启动
+supervisorctl status :查看supervisor监管的进程状态 
+supervisorctl start 进程名 ：启动XXX进程 
+supervisorctl stop 进程名 ：停止XXX进程 
+supervisorctl stop all：停止全部进程，注：start、restart、stop都不会载入最新的配置文件。
 
-`$ crontab -u 用户名 -l （列出用户的定时任务列表）`
 
-查看执行日志：
 
-`tail  /var/log/cron`
-
-![/styles/images/centos/crontab/log-cron.png]({{ '/styles/images/centos/crontab/log-cron.png' | prepend: site.baseurl  }})
