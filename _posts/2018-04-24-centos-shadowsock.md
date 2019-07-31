@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  centos shadowsock 科学上网搭建
-date:   2019-04-24 00:00:00 +0800
+date:   2018-04-24 00:00:00 +0800
 categories: document
 tag: centos
 ---
