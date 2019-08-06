@@ -20,7 +20,7 @@ tag: JVM
 
 ### JDK 自带工具，可以直接打开
 
-![JDK-JVVM]({{ '/styles/images/jmm/JMM-Thread-JVM.png' | prepend: site.baseurl  }})
+![JDK-JVVM]({{ '/styles/images/jmm/JDK-VisaulVM.png' | prepend: site.baseurl  }})
 
 
 ### 远程启动 jar
