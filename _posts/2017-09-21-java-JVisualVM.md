@@ -52,6 +52,8 @@ nohup java -Dcom.sun.management.jmxremote.port=4777
 
 远程 -》 右键 新建远程 -》 输入远程ip
 
+192.168.31.99:4777
+
 
 ![JDK-JVVM]({{ '/styles/images/jmm/JVVM-console.png' | prepend: site.baseurl  }})
 
