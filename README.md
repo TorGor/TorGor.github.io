@@ -27,9 +27,9 @@ author: 作者名
 url: 个人网站
 # baseurl修改为项目名，如果项目是'***.github.io'，则设置为空''
 baseurl: "/LessOrMore"
-resume_site: 个人简历网站
-github: github地址
-github_username: github用户名称
+resume_site: https://github.com/TorGor/
+github: https://github.com/TorGor/
+github_username: TorGor
 # 请到百度统计官网[https://tongji.baidu.com/](https://tongji.baidu.com/)申请自己的网站ID并在此处替换，否则将无法正常统计访问量
 baidu_analysis: 94be4b0f9fc5d94cc0d0415ea6761ae9
 # 请到revolvermaps [http://www.revolvermaps.com/?target=setupgl](http://www.revolvermaps.com/?target=setupgl)申请自己的网站ID并在此处替换，否则将无法正常统计访问量
