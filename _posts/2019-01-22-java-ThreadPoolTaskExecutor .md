@@ -41,32 +41,64 @@ execute(Runable)方法执行过程
 * 线程池中的数量大于corePoolSize时，如果某线程空闲时间超过keepAliveTime，线程将被终止。这样，线程池可以动态的调整池中的线程数。
 
 
-```flow
-st=>start: 开始
-opCore=>operation: 核心线程中获取
-opQueue=>operation: 放入阻塞缓冲队列
-opTread=>operation: 新建非核心线程
-opHandler=>operation: 执行 handler 策略
-condCore=>condition: activeSize < corePoolSize
-condQueue=>condition: Yes or No?
-condTread=>condition: Yes or No?
-condHandler=>condition: Yes or No?
-e=>end
-st->op->cond
-condCore(yes)->e
-condCore(no)->op
-&```
+策略
+===
+1. AbortPolicy （终止执行）：默认策略， Executor会抛出一个RejectedExecutionException 
+运行异常到调用者线程来完成终止。
+
+2. CallerRunsPolicy（调用者线程来运行任务）：这种策略会由调用execute方法的线程自身来执行任务，
+它提供了一个简单的反馈机制并能降低新任务的提交频率。
+
+3. DiscardPolicy （丢弃策略）：不处理，直接丢弃提交的任务。
+
+4. DiscardOldestPolicy （丢弃队列里最近的一个任务）：如果 Executor 还未shutdown 的话，
+则丢弃工作队列的最近的一个任务，然后执行当前任务。
 
 
-![/JMM-Thread-JVM.png]({{ '/styles/images/jmm/JMM-Thread-JVM.png' | prepend: site.baseurl  }})
+配置线程数依据
+===
+
+* CPU密集型任务，那么线程池的线程个数应该尽量少一些，一般为CPU的个数+1条线程。
+* IO密集型任务，那么线程池的线程可以放的很大，如2*CPU的个数。
+* 混合型任务，如果可以拆分的话，通过拆分成 CPU密集型 和 IO密集型 两种来提高执行效率；
+如果不能拆分的的话就可以根据实际情况来调整线程池中线程的个数。
+
+Springboot 配置
+===
+
+```java
+@Configuration
+@ComponentScan("org.jeecg.modules.publishcode.async")
+@EnableAsync
+public class ThreadingConfig implements AsyncConfigurer {
+
+    @Override
+    public Executor getAsyncExecutor() {
+        ThreadPoolTaskExecutor taskExecutor = new ThreadPoolTaskExecutor();
+        //配置核心线程数
+        executor.setCorePoolSize(5);
+        //配置最大线程数
+        executor.setMaxPoolSize(5);
+        //配置队列大小
+        executor.setQueueCapacity(8888);
+        //当容器停止后允许等待时间
+        taskExecutor.setAwaitTerminationSeconds(10);
+        //当容器停止是否等待线程结束
+        taskExecutor.setWaitForTasksToCompleteOnShutdown(true);
+        //策略
+        taskExecutor.setRejectedExecutionHandler(new ThreadPoolExecutor.CallerRunsPolicy());
+        taskExecutor.initialize();
+        return taskExecutor;
+    }
+
+    @Override
+    public AsyncUncaughtExceptionHandler getAsyncUncaughtExceptionHandler() {
+        return AsyncConfigurer.super.getAsyncUncaughtExceptionHandler();
+    }
+
+}
+
+```
 
 
-```flow
-st=>start: 开始
-op=>operation: My Operation
-cond=>condition: Yes or No?
-e=>end
-st->op->cond
-cond(yes)->e
-cond(no)->op
-&```
+
