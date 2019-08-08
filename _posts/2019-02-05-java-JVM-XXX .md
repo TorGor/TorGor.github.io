@@ -29,6 +29,11 @@ tag: JVM
 | -printcompilation | 输出已经被JIT编译的方法  |
 
 
+|  选项   | 作用  |
+|  ----  | ----  |
+| -class  | 监视类装载、卸载数量、总空间以及类装载所耗费的时间 |
+| 单元格  | 单元格 |
+
 ![jstat 命令]({{ '/styles/images/jmm/JVM-jstat-help.png' | prepend: site.baseurl  }})
 
 
