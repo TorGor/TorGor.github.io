@@ -10,9 +10,10 @@ tag: JVM
 {:toc}
 
 
-### jstat （JVM statistics Monitoring）：虚拟机统计信息监视工具
+### jstat (JVM statistics Monitoring）：JVM 监视工具
 
-#### option
+
+**option**
 
 |  选项   | 作用  |
 |  ----  | ----  |
@@ -26,10 +27,12 @@ tag: JVM
 | -gcold  | 监视老年代GC状况 |
 | -gcoldcapacity  | 监视内容与 -gcold 基本相同，输出主要关注使用到的最大、最小空间 |
 | -gcpermcapacity  | 输出永久代使用到的最大、最小空间 |
-| -compiler  | 输出JIT编译器编译过的方法、耗时等信息  |
-| -printcompilation  | 输出已经被JIT编译的方法 |
+| -compiler | 输出JIT编译器编译过的方法、耗时等信息 |
+| -printcompilation | 输出已经被JIT编译的方法 |
+
 
 ![jstat 命令]({{ '/styles/images/jmm/JVM-jstat-help.png' | prepend: site.baseurl  }})
+
 
 
 **C即Capacity 总容量，U即Used 已使用的容量**
