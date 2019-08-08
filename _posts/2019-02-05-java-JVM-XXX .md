@@ -12,6 +12,7 @@ tag: JVM
 
 ### jstat （JVM statistics Monitoring）：虚拟机统计信息监视工具
 
+#### option
 选项 | 作用
 --- | ---
 -class | 监视类装载、卸载数量、总空间以及类装载所耗费的时间
@@ -28,6 +29,31 @@ tag: JVM
 -printcompilation | 输出已经被JIT编译的方法 
 
 ![jstat 命令]({{ '/styles/images/jmm/JVM-jstat-help.png' | prepend: site.baseurl  }})
+
+
+**C即Capacity 总容量，U即Used 已使用的容量**
+* S0C : survivor0区的总容量
+* S1C : survivor1区的总容量
+* S0U : survivor0区已使用的容量
+* S1C : survivor1区已使用的容量
+* EC : Eden区的总容量
+* EU : Eden区已使用的容量
+* OC : Old区的总容量
+* OU : Old区已使用的容量
+* PC : 当前perm的容量 (KB)
+* PU : perm的使用 (KB)
+* YGC : 新生代垃圾回收次数
+* YGCT : 新生代垃圾回收时间
+* FGC : 老年代垃圾回收次数
+* FGCT : 老年代垃圾回收时间
+* GCT : 垃圾回收总消耗时间
+
+
+#### example:
+```jstat -gc 21332 2000 20```
+
+每隔2000ms 输出 pid=21332 的 gc 情况，一共输出 20 次
+
 
 ### centos yum 安装 jdk 没有 jstat ，jps 命令解决办法
 
