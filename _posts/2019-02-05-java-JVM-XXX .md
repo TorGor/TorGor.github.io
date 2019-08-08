@@ -28,6 +28,12 @@ tag: JVM
 -compiler | 输出JIT编译器编译过的方法、耗时等信息 
 -printcompilation | 输出已经被JIT编译的方法 
 
+
+|  表头   | 表头  |
+|  ----  | ----  |
+| 单元格  | 单元格 |
+| 单元格  | 单元格 |
+
 ![jstat 命令]({{ '/styles/images/jmm/JVM-jstat-help.png' | prepend: site.baseurl  }})
 
 
