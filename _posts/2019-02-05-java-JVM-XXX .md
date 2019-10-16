@@ -31,7 +31,7 @@ tag: JVM
 | -printcompilation | 输出已经被JIT编译的方法 |
 
 
-![jstat 命令]({{ '/styles/images/jmm/JVM-jstat-help.png' | prepend: site.baseurl  }})
+![jstat 命令]({{ 'https://torgor.github.io/styles/images/jmm/JVM-jstat-help.png' | prepend: site.baseurl  }})
 
 
 
@@ -59,7 +59,7 @@ tag: JVM
 每隔2000ms 输出 pid=21332 的 gc 情况，一共输出 20 次
 
 
-### centos yum 安装 jdk 没有 jstat ，jps 命令解决办法
+### yum jdk 没有jstat ？
 
 yum install java-1.8.0-openjdk-devel -y
 
