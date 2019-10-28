@@ -55,7 +55,7 @@ tag: SSL
 
  这里推荐一个网址： https://certbot.eff.org
  
- ![certbot 选择使用的服务]({{ 'https://torgor.github.io/styles/images/ssl/ssl-certbot.png' }})
+ ![certbot 选择使用的服务](https://torgor.github.io/styles/images/ssl/ssl-certbot.png)
  
  
  大名顶顶 Lets encrypt。
@@ -81,7 +81,7 @@ tag: SSL
 ```
 
 
-![certbot 过程]({{ 'https://torgor.github.io/styles/images/ssl/ssl-certbot-start.png' }})
+![certbot 过程](https://torgor.github.io/styles/images/ssl/ssl-certbot-start.png)
 
 ### 定时任务每天刷新
  
