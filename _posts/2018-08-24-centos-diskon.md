@@ -17,7 +17,7 @@ tag: centos
 
 显示如图，可以看到有 sda，sdb
 
-![/styles/images/centos/diskon/finddisks.png]({{ '/styles/images/centos/diskon/finddisks.png' | prepend: site.baseurl  }})
+![/styles/images/centos/diskon/finddisks.png](https://torgor.github.io/styles/images/centos/diskon/finddisks.png)
 
 因为磁盘较大原因，使用 parted 命令分区：
 
@@ -37,13 +37,13 @@ tag: centos
 +	Ignore
 +	P
 
-![/styles/images/centos/diskon/parted-cmd.png]({{ '/styles/images/centos/diskon/parted-cmd.png' | prepend: site.baseurl  }})
+![/styles/images/centos/diskon/parted-cmd.png](https://torgor.github.io/styles/images/centos/diskon/parted-cmd.png)
 
 查看分区：
 
 `fdisk -l `
 
-![/styles/images/centos/diskon/fdisk-l.png]({{ '/styles/images/centos/diskon/fdisk-l.png' | prepend: site.baseurl  }})
+![/styles/images/centos/diskon/fdisk-l.png](https://torgor.github.io/styles/images/centos/diskon/fdisk-l.png)
 
 
 
@@ -75,7 +75,7 @@ tag: centos
 
 `/dev/sda1               /data                   ext4    defaults        1 1`
 
-![/styles/images/centos/diskon/vim-fstab.png]({{ '/styles/images/centos/diskon/vim-fstab.png' | prepend: site.baseurl  }})
+![/styles/images/centos/diskon/vim-fstab.png](https://torgor.github.io/styles/images/centos/diskon/vim-fstab.png)
 
 
 重启系统 {#create-data}
@@ -83,7 +83,7 @@ tag: centos
 
 重启并查看是否成功
 
-![/styles/images/centos/diskon/success-df-h.png]({{ '/styles/images/centos/diskon/success-df-h.png' | prepend: site.baseurl  }})
+![/styles/images/centos/diskon/success-df-h.png](https://torgor.github.io/styles/images/centos/diskon/success-df-h.png)
 
 
 

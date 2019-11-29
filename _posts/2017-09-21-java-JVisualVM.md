@@ -16,11 +16,11 @@ tag: JVM
 简单来说就是每个Java程序都可以通过JMX来被JMX client管理，而且这一切都是自动发生的。
 而VisualVm就是一个JMX Client。
 
-![JVVM]({{ '/styles/images/jmm/JVVM.png' | prepend: site.baseurl  }})
+![JVVM](https://torgor.github.io/styles/images/jmm/JVVM.png)
 
 ### JDK 自带工具，可以直接打开
 
-![JDK-JVVM]({{ '/styles/images/jmm/JDK-VisaulVM.png' | prepend: site.baseurl  }})
+![JDK-JVVM](https://torgor.github.io/styles/images/jmm/JDK-VisaulVM.png)
 
 
 ### 远程启动 jar
@@ -55,6 +55,6 @@ nohup java -Dcom.sun.management.jmxremote.port=4777
 192.168.31.99:4777
 
 
-![JDK-JVVM]({{ '/styles/images/jmm/JVVM-console.png' | prepend: site.baseurl  }})
+![JDK-JVVM](https://torgor.github.io/styles/images/jmm/JVVM-console.png)
 
 

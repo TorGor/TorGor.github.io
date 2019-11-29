@@ -79,4 +79,4 @@ tag: centos
 
 `tail  /var/log/cron`
 
-![/styles/images/centos/crontab/log-cron.png]({{ '/styles/images/centos/crontab/log-cron.png' | prepend: site.baseurl  }})
+![/styles/images/centos/crontab/log-cron.png](https://torgor.github.io/styles/images/centos/crontab/log-cron.png)
