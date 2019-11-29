@@ -31,8 +31,7 @@ tag: JVM
 | -printcompilation | 输出已经被JIT编译的方法 |
 
 
-![jstat 命令]({{ 'https://torgor.github.io/styles/images/jmm/JVM-jstat-help.png' | prepend: site.baseurl  }})
-
+![certbot 选择使用的服务](https://torgor.github.io/styles/images/jmm/JVM-jstat-help.png)
 
 
 **C即Capacity 总容量，U即Used 已使用的容量**
