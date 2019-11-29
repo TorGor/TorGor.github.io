@@ -19,7 +19,7 @@ tag: DevOps
 # devops 是什么？
 我个人理解，devops 就是以提高效率宗旨，利用各种管理方法和技术来辅助，实现项目周期管理：产品需求管理、会议记录、快速开发、加速迭代、运维方便、反馈及时提、反馈快速处理、代码自动测试、自动部署、自动更新。这是一个完整的闭环生态，可以极大的提高团队的效率，听着好像很抽象，这里有一张图可以具象来看。
 
-![certbot 选择使用的服务](https://torgor.github.io/styles/images/devops/devops-sum.png)
+![一般的 devops 概念](https://torgor.github.io/styles/images/devops/devops-sum.png)
 
 > 引用：
 DevOps（Development和Operations的组合词）是一组过程、方法与系统的统称，用于促进开发（应用程序/软件工程）、技术运营和质量保障（QA）部门之间的沟通、协作与整合。
@@ -30,7 +30,7 @@ DevOps（Development和Operations的组合词）是一组过程、方法与系�
 # Devops 能够给我们解决哪些问题？
 
  
-![certbot 选择使用的服务](https://torgor.github.io/styles/images/devops/devops-cercle.png) 
+![devops在团队中的体现](https://torgor.github.io/styles/images/devops/devops-cercle.png) 
  
 ##  加强各个部门人员协调
 Scrum 团队的标志性的特征，从项目开始到线上运行再到运维反馈，都是一个完整的闭环，在这个闭环内，
@@ -57,9 +57,6 @@ Scrum 团队的标志性的特征，从项目开始到线上运行再到运维�
 
 ##  Issue git 自动关联检查
 遇到现在问题需要及时反馈，创建issue并附上运行时参数，提交到开发者手中修改，开发者根据收到的issue 描述修改，fix 提交代码后 commit记录中带上 issue id ，自动将代码和issue 关联起来。然后继续迭代。这样就可以查看这次的issue 到底修改了哪些代码。
-
-
-
 
 
 # Devops 需要哪些条件？
@@ -89,3 +86,5 @@ Web服务器：Apache、Nginx、IIS
 2. 能够承担多个角色带来的压力，随着devops 在项目中的应用，每个人的角色会发生变化，不再是单纯的一个角色，管理者的角色可能会从项目经理干到开发，再干到运维，苦逼如我。
 3. 团队人员必须紧密配合，还是需要保持沟通和良好的关系。
 
+
+![devops 项目架构图](https://torgor.github.io/styles/images/devops/devops-JG.png) 
