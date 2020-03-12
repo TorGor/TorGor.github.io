@@ -160,7 +160,7 @@ java.util.concurrent.atomic包里面的原子类都是利用乐观锁实现的�
 里面提供了很多并发编程中很常用的实用工具类，比如atomic原子操作、比如lock同步锁、fork/join等。
 
 AQS 的核心功能，就是用来将当前工作的线程设置为占有资源状态，并将资源状态设置为锁定，如果其他线程继续访问共享资源，
-则需要使用队列将其他线程进行管理，这个队列并不是实例化的某种队列，只是一个node 节点的双向关联。
+则需要使用队列将其他线程进行管理，这个队列并不是实例化的某种队列，只是一个 Node 节点的双向关联。
 
 
 下面只列出一些 AQS 核心的东西，后面有机会详细解读 AQS 
@@ -169,6 +169,122 @@ AQS 的核心功能，就是用来将当前工作的线程设置为占有资源�
 3. lock获取锁的过程：本质上是通过CAS来获取状态值修改，如果当场没获取到，会将该线程放在线程等待链表中
 4. lock释放锁的过程：修改状态值，调整等待链表。
 
+下面这段代码就是 AQS 静态内部类，Node：
+```java
+    static final class Node {
+        /** Marker to indicate a node is waiting in shared mode */
+        static final Node SHARED = new Node();
+        /** Marker to indicate a node is waiting in exclusive mode */
+        static final Node EXCLUSIVE = null;
+
+        /** waitStatus value to indicate thread has cancelled */
+        static final int CANCELLED =  1;
+        /** waitStatus value to indicate successor's thread needs unparking */
+        static final int SIGNAL    = -1;
+        /** waitStatus value to indicate thread is waiting on condition */
+        static final int CONDITION = -2;
+        /**
+         * waitStatus value to indicate the next acquireShared should
+         * unconditionally propagate
+         */
+        static final int PROPAGATE = -3;
+
+        /**
+         * Status field, taking on only the values:
+         *   SIGNAL:     The successor of this node is (or will soon be)
+         *               blocked (via park), so the current node must
+         *               unpark its successor when it releases or
+         *               cancels. To avoid races, acquire methods must
+         *               first indicate they need a signal,
+         *               then retry the atomic acquire, and then,
+         *               on failure, block.
+         *   CANCELLED:  This node is cancelled due to timeout or interrupt.
+         *               Nodes never leave this state. In particular,
+         *               a thread with cancelled node never again blocks.
+         *   CONDITION:  This node is currently on a condition queue.
+         *               It will not be used as a sync queue node
+         *               until transferred, at which time the status
+         *               will be set to 0. (Use of this value here has
+         *               nothing to do with the other uses of the
+         *               field, but simplifies mechanics.)
+         *   PROPAGATE:  A releaseShared should be propagated to other
+         *               nodes. This is set (for head node only) in
+         *               doReleaseShared to ensure propagation
+         *               continues, even if other operations have
+         *               since intervened.
+         *   0:          None of the above
+         *
+         * The values are arranged numerically to simplify use.
+         * Non-negative values mean that a node doesn't need to
+         * signal. So, most code doesn't need to check for particular
+         * values, just for sign.
+         *
+         * The field is initialized to 0 for normal sync nodes, and
+         * CONDITION for condition nodes.  It is modified using CAS
+         * (or when possible, unconditional volatile writes).
+         */
+        volatile int waitStatus;
+
+        
+        volatile Node prev;
+
+        
+        volatile Node next;
+
+        /**
+         * The thread that enqueued this node.  Initialized on
+         * construction and nulled out after use.
+         */
+        volatile Thread thread;
+
+        
+        Node nextWaiter;
+
+        /**
+         * Returns true if node is waiting in shared mode.
+         */
+        final boolean isShared() {
+            return nextWaiter == SHARED;
+        }
+
+        /**
+         * Returns previous node, or throws NullPointerException if null.
+         * Use when predecessor cannot be null.  The null check could
+         * be elided, but is present to help the VM.
+         *
+         * @return the predecessor of this node
+         */
+        final Node predecessor() throws NullPointerException {
+            Node p = prev;
+            if (p == null)
+                throw new NullPointerException();
+            else
+                return p;
+        }
+
+        Node() {    // Used to establish initial head or SHARED marker
+        }
+
+        Node(Thread thread, Node mode) {     // Used by addWaiter
+            this.nextWaiter = mode;
+            this.thread = thread;
+        }
+
+        Node(Thread thread, int waitStatus) { // Used by Condition
+            this.waitStatus = waitStatus;
+            this.thread = thread;
+        }
+    }
+```
+重点看下这个 ``volatile int waitStatus;``，这是一个volatile 修饰的int 状态类型，volatile 就是确保该变量是对其他线程可见的，
+ 是java 内存模型中的重要概念，不理解的可以去看下 JMM 。
+ SIGNAL(-1)：表示后继结点在等待当前结点唤醒。后继结点入队时，会将前继结点的状态更新为SIGNAL。
+ CANCELLED(1):表示当前结点已取消调度。当timeout或被中断（响应中断的情况下），会触发变更为此状态，进入该状态后的结点将不会再变化。
+ CONDITION(-2):表示结点等待在Condition上，当其他线程调用了Condition的signal()方法后，CONDITION状态的结点将从等待队列转移到同步队列中，等待获取同步锁。
+ PROPAGATE(-3):共享模式下，前继结点不仅会唤醒其后继结点，同时也可能会唤醒后继的后继结点。
+ 0:初始状态
+ 
+ 
 
 ## synchronize 是不是可重入锁
 这个需要先理解可重入锁是怎么设计的。
