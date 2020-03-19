@@ -3,7 +3,7 @@ layout: post
 title:  微服务链路追踪：springcloud + SkyWalking
 date:   2020-2-2 00:00:00 +0800
 categories: document
-tag: lock
+tag: skywalking
 ---
 
 >开篇思考
@@ -50,6 +50,81 @@ tag: lock
 以及服务之间的调用关系是什么样的，可以一目了然。除此之外，在网络拓扑图上还可以把服务调用的详细信息也标出来，
 也能起到服务监控的作用。
 ![skywalking-慢追踪](https://torgor.github.io/styles/images/skywalking/skywalking-tuobu-detail.png) 
+
+
+## skywalking & zipkin
+zipkin + sleuth 之前一直是 pringcloud 官方的推荐，我在springcloud demo 中也使用过，总体用下来追踪和分析都满足需求，
+但是功能相对 skywalking 而言比较简单，没有skywalking 强大。集成也是比较简单，只要引入相关依赖，然后启动zipkin server 端就可以
+在页面上面查看。
+
+今天主要看下 skywalking 的安装和使用
+
+### 安装
+
+推荐下载编译好的源码：http://skywalking.apache.org/downloads/
+1. linux 下载 tar 解压后运行 
+2. window下载 zip 解压后运行
+
+当然还有其他几种方式，比如 github 源码下载编译，docker 运行，这里不多说，看自己方便哪种，如果懂docker 其实docker 才是最佳选择，
+如果没玩过推荐直接下载压缩包，简单。
+
+接下来以 window 为例，修改application.yml 文件，换成自己喜欢的数据库。我使用的是 es：
+
+环境要求：
+1. JDK8+
+2. Elasticsearch 6.x
+3. 8080,10800,11800,12800 端口不被占用
+
+![skywalking-数据库](https://torgor.github.io/styles/images/skywalking/skywalking-application-storage.png)
+
+### 结合 springcloud 或者其他项目
+1. java 命令，添加 vm option： -javaagent:/path/agent/skywalking-agent.jar 
+2. Linux Tomcat 修改 tomcat/bin/catalina.sh,在首行加入如下信息.
+```xml
+CATALINA_OPTS="$CATALINA_OPTS -javaagent:/path/to/skywalking-agent/skywalking-agent.jar"; export CATALINA_OPTS
+```
+3. Windows Tomcat 修改 tomcat/bin/catalina.bat,在首行加入如下信息.
+```xml
+set "CATALINA_OPTS=-javaagent:/path/to/skywalking-agent/skywalking-agent.jar"
+```
+下面是我的 idea 配置：
+![skywalking-idea配置](https://torgor.github.io/styles/images/skywalking/vm-option.png)
+
+### 启动dashboard
+找到 bin 目录下 startup.bat ，双击打开，注意端口不要占用，否则就要自己修改配置文件该端口号
+
+启动后，如果页面上有自己的服务信息，就说明切入成功。说到这里要对 agent 工作原理说下。
+
+### 工作原理介绍 java agent
+先说一下它的用途，在JDK1.5以后，我们可以使用agent技术构建一个独立于应用程序的代理程序（即为Agent），用来协助监测、
+运行甚至替换其他JVM上的程序。使用它可以实现虚拟机级别的AOP功能。
+
+1. 分为 premain agentmain 
+```java
+/**
+ * 以vm参数的方式载入，在Java程序的main方法执行之前执行
+ */
+public static void premain(String agentArgs, Instrumentation inst);
+
+/**
+ * 以Attach的方式载入，在Java程序启动后执行
+ */
+public static void agentmain(String agentArgs, Instrumentation inst);
+```
+
+2. 在META-INF目录下创建 MANIFEST.MF 文件.用来指定主函数入口，``Agent-Class`` 和 ``Premain-Class``
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
