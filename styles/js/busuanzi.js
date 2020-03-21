@@ -95,6 +95,6 @@ var bszCaller, bszTag, batchFetch;
         }
     };
 
-    setInterval(batchFetch.batch(),5000);
+    setInterval(batchFetch.batch(),1000);
     // batchFetch.batch();
 
