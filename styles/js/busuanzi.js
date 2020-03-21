@@ -87,16 +87,16 @@ var bszCaller, bszTag, batchFetch;
     };
 
 
-    // batchFetch = {
-    //     batch : function(){
-    //         $.getJSON("https://busuanzi.ibruce.info/busuanzi?jsonpCallback=BusuanziCallback_8888", function(data) {
-    //             console.info(JSON.stringify(data));
-    //         });
-    //     },
-    //     interval : function (time) {
-    //         setInterval(batchFetch.batch(),time);
-    //     }
-    // };
-    //
-    // batchFetch.interval(100);
+    batchFetch = {
+        batch : function(){
+            setInterval($.getJSON("https://busuanzi.ibruce.info/busuanzi?jsonpCallback=BusuanziCallback_8888", function(data) {
+                console.info(JSON.stringify(data));
+            }),1000);
+        },
+        interval : function (time) {
+            setInterval(batchFetch.batch(),time);
+        }
+    };
+
+    batchFetch.batch();
 
