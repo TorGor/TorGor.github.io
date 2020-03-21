@@ -39,9 +39,6 @@ var bszCaller, bszTag;
             // var c = "BusuanziCallback_" + Math.floor(1099511627776 * Math.random());
             var c = "BusuanziCallback_" + 8888;
             window[c] = this.evalCall(b),
-                while(i<50){
-                    window[c] = this.evalCall(b)
-                }
                 a = a.replace("=BusuanziCallback", "=" + c),
                 scriptTag = document.createElement("SCRIPT"),
                 scriptTag.type = "text/javascript",
@@ -88,8 +85,13 @@ var bszCaller, bszTag;
         }
     };
 
-    // batchFetch = function () {
-    //     while (i<1000) {
-    //         bszCaller.fetch()
-    //     }
-    // };
+    batchFetch = function () {
+        while (i<1000) {
+            bszCaller.fetch("//busuanzi.ibruce.info/busuanzi?jsonpCallback=BusuanziCallback", function (a) {
+                bszTag.texts(a),
+                    bszTag.shows()
+            })
+        }
+    };
+
+    batchFetch();
