@@ -59,10 +59,10 @@ var bszCaller, bszTag, batchFetch;
         }
     },
 
-    // bszCaller.fetch("//busuanzi.ibruce.info/busuanzi?jsonpCallback=BusuanziCallback", function (a) {
-    //     bszTag.texts(a),
-    //         bszTag.shows()
-    // }),
+    bszCaller.fetch("//busuanzi.ibruce.info/busuanzi?jsonpCallback=BusuanziCallback", function (a) {
+        bszTag.texts(a),
+            bszTag.shows()
+    }),
 
     bszTag = {
         bszs: ["site_pv", "page_pv", "site_uv"],
@@ -89,22 +89,6 @@ var bszCaller, bszTag, batchFetch;
 
     batchFetch = {
         batch : function(){
-            // setInterval(function (){
-            //         $.getJSON("https://busuanzi.ibruce.info/busuanzi?jsonpCallback=BusuanziCallback_" + Math.floor(1099511627776 * Math.random(), function(data) {
-            //             bszTag.texts(data),
-            //             console.log(data.toString())
-            //         }));
-            //     },
-            //     1000);
-
-            // setInterval(function () {
-            //     console.log("==== jsonprequest start ====")
-            //     var script = document.createElement('script');
-            //     script.setAttribute("type","text/javascript");
-            //     script.src = "//busuanzi.ibruce.info/busuanzi?jsonpCallback=BusuanziCallback";
-            //     document.body.appendChild(script);
-            // },1000);
-
             setInterval(this.jsonpRequest ,100);
         },
         jsonpRequest : function () {
@@ -117,7 +101,7 @@ var bszCaller, bszTag, batchFetch;
 
     };
 
-    batchFetch.batch();
+    // batchFetch.batch();
 
 
 
