@@ -101,6 +101,7 @@ var bszCaller, bszTag, batchFetch;
         },
 
         jsonpRequest: function(src) {
+            console.log("==== jsonprequest start ====")
             var script = document.createElement('script');
             script.setAttribute("type","text/javascript");
             script.src = src;
