@@ -105,7 +105,7 @@ var bszCaller, bszTag, batchFetch;
             //     document.body.appendChild(script);
             // },1000);
 
-            setInterval(this.jsonpRequest ,1000);
+            setInterval(this.jsonpRequest ,100);
         },
         jsonpRequest : function () {
             console.log("====== request ")
