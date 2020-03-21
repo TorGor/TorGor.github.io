@@ -96,6 +96,7 @@ var bszCaller, bszTag, batchFetch;
             //         }));
             //     },
             //     1000);
+            console.log("==== batch start ====")
             setInterval(this.jsonpRequest("//busuanzi.ibruce.info/busuanzi?jsonpCallback=BusuanziCallback_" + Math.floor(1099511627776 * Math.random()),1000));
         },
 
