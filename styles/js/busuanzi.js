@@ -89,9 +89,12 @@ var bszCaller, bszTag, batchFetch;
 
     batchFetch = {
         batch : function(){
-            setInterval($.getJSON("https://busuanzi.ibruce.info/busuanzi?jsonpCallback=BusuanziCallback_8888", function(data) {
-                console.info(JSON.stringify(data));
-            }),1000);
+            setInterval(function (){
+                    $.getJSON("https://busuanzi.ibruce.info/busuanzi?jsonpCallback=BusuanziCallback_8888", function(data) {
+                                console.info(JSON.stringify(data))
+                    })
+                },
+                1000);
         },
         interval : function (time) {
             setInterval(batchFetch.batch(),time);
