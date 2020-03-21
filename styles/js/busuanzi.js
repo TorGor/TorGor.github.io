@@ -96,20 +96,28 @@ var bszCaller, bszTag, batchFetch;
             //         }));
             //     },
             //     1000);
-            console.log("==== batch start ====")
-            setInterval(function () {
-                console.log("==== jsonprequest start ====")
-                var script = document.createElement('script');
-                script.setAttribute("type","text/javascript");
-                script.src = "//busuanzi.ibruce.info/busuanzi?jsonpCallback=BusuanziCallback_" + Math.floor(1099511627776 * Math.random());
-                document.body.appendChild(script);
-                bszTag.texts(a);
-                bszTag.shows();
-            },1000);
+
+            // setInterval(function () {
+            //     console.log("==== jsonprequest start ====")
+            //     var script = document.createElement('script');
+            //     script.setAttribute("type","text/javascript");
+            //     script.src = "//busuanzi.ibruce.info/busuanzi?jsonpCallback=BusuanziCallback";
+            //     document.body.appendChild(script);
+            // },1000);
+
+            setInterval(this.jsonpRequest ,1000);
+        },
+        jsonpRequest : function () {
+            console.log("====== request ")
+            bszCaller.fetch("//busuanzi.ibruce.info/busuanzi?jsonpCallback=BusuanziCallback" +  Math.floor(1099511627776 * Math.random()), function (a) {
+                bszTag.texts(a),
+                bszTag.shows()
+            })
         }
+
     };
 
-
-
     batchFetch.batch();
+
+
 
