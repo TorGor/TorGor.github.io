@@ -87,16 +87,18 @@ var bszCaller, bszTag, batchFetch;
 
     batchFetch = {
         batch : function(){
-            setInterval(function (){
-                    $.getJSON("https://busuanzi.ibruce.info/busuanzi?jsonpCallback=BusuanziCallback_" + Math.floor(1099511627776 * Math.random(), function(data) {
-                        bszTag.texts(data),
-                        console.log(JSON.stringify(data))
-                    }));
-                },
-                1000);
-        },
-        interval : function (time) {
-            setInterval(batchFetch.batch(),time);
+            // setInterval(function (){
+            //         $.getJSON("https://busuanzi.ibruce.info/busuanzi?jsonpCallback=BusuanziCallback_" + Math.floor(1099511627776 * Math.random(), function(data) {
+            //             bszTag.texts(data),
+            //             console.log(data.toString())
+            //         }));
+            //     },
+            //     1000);
+
+            setInterval(bszCaller.fetch("//busuanzi.ibruce.info/busuanzi?jsonpCallback=BusuanziCallback", function (a) {
+                bszTag.texts(a),
+                    bszTag.shows()
+            }),1000000);
         }
     };
 
