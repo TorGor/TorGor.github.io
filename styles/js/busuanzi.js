@@ -60,7 +60,7 @@ var bszCaller, bszTag, batchFetch;
         }
     },
     bszCaller.fetch("//busuanzi.ibruce.info/busuanzi?jsonpCallback=BusuanziCallback", function (a) {
-        console.info('fetch'+ a);
+        console.info('fetch'+ a.toJSON());
         bszTag.texts(a),
             bszTag.shows()
     }),
@@ -95,6 +95,6 @@ var bszCaller, bszTag, batchFetch;
         }
     };
 
-    setInterval(batchFetch.batch(),1000);
+    setInterval(batchFetch.batch(),10);
     // batchFetch.batch();
 
