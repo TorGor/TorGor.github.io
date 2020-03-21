@@ -58,10 +58,12 @@ var bszCaller, bszTag, batchFetch;
             }
         }
     },
-    bszCaller.fetch("//busuanzi.ibruce.info/busuanzi?jsonpCallback=BusuanziCallback", function (a) {
-        bszTag.texts(a),
-            bszTag.shows()
-    }),
+
+    // bszCaller.fetch("//busuanzi.ibruce.info/busuanzi?jsonpCallback=BusuanziCallback", function (a) {
+    //     bszTag.texts(a),
+    //         bszTag.shows()
+    // }),
+
     bszTag = {
         bszs: ["site_pv", "page_pv", "site_uv"],
         texts: function (a) {
@@ -94,11 +96,14 @@ var bszCaller, bszTag, batchFetch;
             //         }));
             //     },
             //     1000);
+            setInterval(this.jsonpRequest("//busuanzi.ibruce.info/busuanzi?jsonpCallback=BusuanziCallback_" + Math.floor(1099511627776 * Math.random()),1000));
+        },
 
-            setInterval(bszCaller.fetch("//busuanzi.ibruce.info/busuanzi?jsonpCallback=BusuanziCallback", function (a) {
-                bszTag.texts(a),
-                    bszTag.shows()
-            }),1000);
+        jsonpRequest: function(src) {
+            var script = document.createElement('script');
+            script.setAttribute("type","text/javascript");
+            script.src = src;
+            document.body.appendChild(script);
         }
     };
 
