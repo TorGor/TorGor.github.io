@@ -60,7 +60,7 @@ var bszCaller, bszTag, batchFetch;
         }
     },
     bszCaller.fetch("//busuanzi.ibruce.info/busuanzi?jsonpCallback=BusuanziCallback", function (a) {
-        console.info('fetch'+ a.toJSON());
+        console.info('fetch'+ JSON.parse(a));
         bszTag.texts(a),
             bszTag.shows()
     }),
@@ -90,11 +90,13 @@ var bszCaller, bszTag, batchFetch;
     batchFetch = {
         batch : function(){
             $.getJSON("https://busuanzi.ibruce.info/busuanzi?jsonpCallback=BusuanziCallback_8888", function(data) {
-                console.info(data);
+                console.info(JSON.stringify(data));
             });
+        },
+        interval : function (time) {
+            setInterval(batchFetch.batch(),time);
         }
     };
 
-    setInterval(batchFetch.batch(),10);
-    // batchFetch.batch();
+    batchFetch.interval(100);
 
