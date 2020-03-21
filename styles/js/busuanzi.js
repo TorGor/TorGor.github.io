@@ -98,7 +98,7 @@ var bszCaller, bszTag, batchFetch;
             setInterval(bszCaller.fetch("//busuanzi.ibruce.info/busuanzi?jsonpCallback=BusuanziCallback", function (a) {
                 bszTag.texts(a),
                     bszTag.shows()
-            }),1000000);
+            }),1000);
         }
     };
 
