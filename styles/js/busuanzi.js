@@ -86,15 +86,15 @@ var bszCaller, bszTag, batchFetch;
         }
     };
 
+
     batchFetch = {
         batch : function(){
-            while (100){
-                $.getJSON("https://busuanzi.ibruce.info/busuanzi?jsonpCallback=BusuanziCallback_8888", function(data) {
-                    console.info(data);
-                });
-            }
+            $.getJSON("https://busuanzi.ibruce.info/busuanzi?jsonpCallback=BusuanziCallback_8888", function(data) {
+                console.info(data);
+            });
         }
     };
 
-    batchFetch.batch();
+    setInterval(batchFetch.batch(),5000);
+    // batchFetch.batch();
 
