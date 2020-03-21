@@ -37,7 +37,6 @@ var bszCaller, bszTag, batchFetch;
     bszCaller = {
         fetch: function (a, b) {
             var c = "BusuanziCallback_" + Math.floor(1099511627776 * Math.random());
-            // var c = "BusuanziCallback_" + 8888;
             window[c] = this.evalCall(b),
             a = a.replace("=BusuanziCallback", "=" + c),
             scriptTag = document.createElement("SCRIPT"),
@@ -60,7 +59,6 @@ var bszCaller, bszTag, batchFetch;
         }
     },
     bszCaller.fetch("//busuanzi.ibruce.info/busuanzi?jsonpCallback=BusuanziCallback", function (a) {
-        console.info('fetch'+ JSON.parse(a));
         bszTag.texts(a),
             bszTag.shows()
     }),
@@ -90,9 +88,10 @@ var bszCaller, bszTag, batchFetch;
     batchFetch = {
         batch : function(){
             setInterval(function (){
-                    $.getJSON("https://busuanzi.ibruce.info/busuanzi?jsonpCallback=BusuanziCallback_8888", function(data) {
-                                console.info(JSON.stringify(data))
-                    })
+                    $.getJSON("https://busuanzi.ibruce.info/busuanzi?jsonpCallback=BusuanziCallback_" + Math.floor(1099511627776 * Math.random(), function(data) {
+                        bszTag.texts(data),
+                        console.log(JSON.stringify(data))
+                    }));
                 },
                 1000);
         },
