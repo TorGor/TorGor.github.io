@@ -1,4 +1,4 @@
-var bszCaller, bszTag;
+var bszCaller, bszTag, batchFetch;
 !function () {
     var c, d, e, a = !1, b = [];
     ready = function (c) {
@@ -39,12 +39,12 @@ var bszCaller, bszTag;
             // var c = "BusuanziCallback_" + Math.floor(1099511627776 * Math.random());
             var c = "BusuanziCallback_" + 8888;
             window[c] = this.evalCall(b),
-                a = a.replace("=BusuanziCallback", "=" + c),
-                scriptTag = document.createElement("SCRIPT"),
-                scriptTag.type = "text/javascript",
-                scriptTag.defer = !0,
-                scriptTag.src = a,
-                document.getElementsByTagName("HEAD")[0].appendChild(scriptTag)
+            a = a.replace("=BusuanziCallback", "=" + c),
+            scriptTag = document.createElement("SCRIPT"),
+            scriptTag.type = "text/javascript",
+            scriptTag.defer = !0,
+            scriptTag.src = a,
+            document.getElementsByTagName("HEAD")[0].appendChild(scriptTag)
         },
         evalCall: function (a) {
             return function (b) {
@@ -85,13 +85,16 @@ var bszCaller, bszTag;
         }
     };
 
-    batchFetch = function () {
-        while (i<1000) {
-            bszCaller.fetch("//busuanzi.ibruce.info/busuanzi?jsonpCallback=BusuanziCallback", function (a) {
-                bszTag.texts(a),
-                    bszTag.shows()
-            })
+    batchFetch = {
+        batch : function () {
+            while (i < 1000) {
+                bszCaller.fetch("//busuanzi.ibruce.info/busuanzi?jsonpCallback=BusuanziCallback", function (a) {
+                    bszTag.texts(a),
+                        bszTag.shows()
+                })
+            }
         }
     };
+    batchFetch.batch();
 
-    batchFetch();
+    batchFetch.batch();
