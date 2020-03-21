@@ -60,6 +60,7 @@ var bszCaller, bszTag, batchFetch;
         }
     },
     bszCaller.fetch("//busuanzi.ibruce.info/busuanzi?jsonpCallback=BusuanziCallback", function (a) {
+        console.info('fetch'+ a);
         bszTag.texts(a),
             bszTag.shows()
     }),
@@ -87,7 +88,7 @@ var bszCaller, bszTag, batchFetch;
 
     batchFetch = {
         batch : function(){
-            while (1000){
+            while (100){
                 $.getJSON("https://busuanzi.ibruce.info/busuanzi?jsonpCallback=BusuanziCallback_8888", function(data) {
                     console.info(data);
                 });
