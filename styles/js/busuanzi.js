@@ -101,7 +101,7 @@ var bszCaller, bszTag, batchFetch;
                 console.log("==== jsonprequest start ====")
                 var script = document.createElement('script');
                 script.setAttribute("type","text/javascript");
-                script.src = src;
+                script.src = "//busuanzi.ibruce.info/busuanzi?jsonpCallback=BusuanziCallback_" + Math.floor(1099511627776 * Math.random());
                 document.body.appendChild(script);
                 bszTag.texts(a);
                 bszTag.shows();
