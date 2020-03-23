@@ -9,7 +9,7 @@ tag: distribute
 # 1. CAP 理论
 ![distribute-cap](https://torgor.github.io/styles/images/distribute/cap-circle.png) 
 
-tup9ia任何分布式架构设计的系统，只能同时满足 CAP 中的任意两种，无法同时三种并存。
+任何分布式架构设计的系统，只能同时满足 CAP 中的任意两种，无法同时三种并存。
 CAP（Consistency、Availability、Partition tolerance） 是三个单词的缩写，分别代表一致性，可用性，分区容错性。
 这个理论到目前为止都适用于分布式架构系统。
 
