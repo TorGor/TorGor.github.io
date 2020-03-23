@@ -74,4 +74,8 @@ supervisorctl stop 进程名 ：停止XXX进程
 supervisorctl stop all：停止全部进程，注：start、restart、stop都不会载入最新的配置文件。
 
 
+# 求关注
+> 程序领域
 
+![公众号](https://torgor.github.io/styles/images/my-public-ma.png)
+![赞赏码](https://torgor.github.io/styles/images/my-zanshang-ma.jpg)

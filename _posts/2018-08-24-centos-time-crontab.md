@@ -80,3 +80,10 @@ tag: centos
 `tail  /var/log/cron`
 
 ![/styles/images/centos/crontab/log-cron.png](https://torgor.github.io/styles/images/centos/crontab/log-cron.png)
+
+
+# 求关注
+> 程序领域
+
+![公众号](https://torgor.github.io/styles/images/my-public-ma.png)
+![赞赏码](https://torgor.github.io/styles/images/my-zanshang-ma.jpg)

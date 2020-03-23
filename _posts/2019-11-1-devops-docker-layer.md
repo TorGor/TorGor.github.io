@@ -87,3 +87,10 @@ Web服务器：Apache、Nginx、IIS
 
 
 ![devops 项目架构图](https://torgor.github.io/styles/images/devops/devops-JG.png) 
+
+
+# 求关注
+> 程序领域
+
+![公众号](https://torgor.github.io/styles/images/my-public-ma.png)
+![赞赏码](https://torgor.github.io/styles/images/my-zanshang-ma.jpg)

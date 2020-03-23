@@ -79,7 +79,11 @@ mysql replication的异步复制也是一种体现。
 强调的是要求最终一致，不需要实时保证系统数据的强一致。
 
 
+# 求关注
+> 程序领域
 
+![公众号](https://torgor.github.io/styles/images/my-public-ma.png)
+![赞赏码](https://torgor.github.io/styles/images/my-zanshang-ma.jpg)
 
 
 
