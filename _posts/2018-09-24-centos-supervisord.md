@@ -78,4 +78,4 @@ supervisorctl stop all：停止全部进程，注：start、restart、stop都不
 > 程序领域
 
 ![公众号](https://torgor.github.io/styles/images/my-public-ma.png)
-![赞赏码](https://torgor.github.io/styles/images/my-zanshang-ma.jpg)
+![赞赏码](https://torgor.github.io/styles/images/my-zanshang-ma.png)
