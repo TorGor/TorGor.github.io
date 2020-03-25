@@ -303,9 +303,14 @@ spring:
 
 其实这个也是没有问题，大体思路就是封装新服务，专门用来检查事务执行情况，根据事务状态来决定是否发送消息到 MQ。
 
+> 有好的建议欢迎在下方留言，大家一起讨论一起进步。优秀的评论会被选出赠送奖励
 
 
+# 喜欢文章请关注我
+> 程序领域
 
+![公众号](https://torgor.github.io/styles/images/my-public-ma.png)
+![赞赏码](https://torgor.github.io/styles/images/my-zanshang-ma.png)
 
 
 
