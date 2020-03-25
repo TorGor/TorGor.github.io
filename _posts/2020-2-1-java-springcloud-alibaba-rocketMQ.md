@@ -258,6 +258,50 @@ public class RocketMQController {
 }
 	
 ```
+配置文件：
+```yaml
+spring:
+    application:
+        name: service-consumer
+    cloud:
+        stream:
+          bindings:
+              output1:
+                  content-type: application/json
+                  destination: test-topic
+              output2:
+                  content-type: application/json
+                  destination: TransactionTopic
+              output3:
+                  content-type: text/plain
+                  destination: pull-topic
+          rocketmq:
+              bindings:
+                  output1:
+                      producer:
+                          group: binder-group
+                          sync: true
+                  output2:
+                      producer:
+                          group: myTxProducerGroup
+                          transactional: true
+                  output3:
+                      producer:
+                          group: pull-binder-group
+              binder:
+                name-server: 192.168.244.89:9876
+```
+
+# 后续思考
+> 本地事务复杂，执行查询时间太久如何处理？
+
+针对不同的情况，其实我们只要认真分析场景，自然可以设计出对应的解决办法。
+有些时候我们更希望通过一张事务执行情况表来判断事务的整体实行情况，比如业务比较复杂的时候，需要更新很多的表信息，这时候
+使用事务表根据 TransactionID 来记录事务执行情况反而更贴合实际的使用场景。
+
+> 如果我不是用 rocketMQ ，可以通过其他的 MQ 来实现分布式事务处理吗？
+
+其实这个也是没有问题，大体思路就是封装新服务，专门用来检查事务执行情况，根据事务状态来决定是否发送消息到 MQ。
 
 
 
