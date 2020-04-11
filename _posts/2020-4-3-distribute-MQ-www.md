@@ -3,7 +3,7 @@ layout: post
 title:  分布式系统不可缺少的 MQ （消息机制）
 date:   2020-4-3 00:00:00 +0800
 categories: document
-tag: lock
+tag: distribute
 ---
 
 >开篇思考
