@@ -21,7 +21,7 @@ tag: distribute
 
 # 消息中间件在系统中的使用
 我之前写过一篇关于 rocketMQ 实现分布式锁的文章，主要介绍如何使用 RocketMQ 实现分布式锁，
-[《Springcloud + RocketMQ 解决分布式事务》](https://mp.weixin.qq.com/s/QSxVscvMVuJpt6yXrrkXbg)  
+[《Springcloud + RocketMQ 解决分布式事务》](https://torgor.github.io/2020/03/01/java-springcloud-alibaba-rocketMQ/)  
 但是这个功能并不是 MQ 基本功能，也不是所有 MQ 都有的功能。
 
 MQ 在系统中到底有哪些作用呢？抛开基本的消息发布订阅不说，还有以下几点：
@@ -113,7 +113,7 @@ RocketMQ 是阿里开源的一套可靠消息系统，已经捐赠 Apache 成为
 目前支持的客户端包括 java，c++，GO ，社区比较活跃，文档还算全面。但是涉及到核心的要修改还是有难度的，毕竟阿里云靠卖这个服务赚钱呢。
 所以如果公司实力不自信还是慎重选择吧，实在不行可以直接购买云服务，省心省力，还是那句话，看实际情况。
 
-# 主流 MQ 的特点 
+# 主流 MQ 的特点   
 下图是来源网络的图片，部分描述已经过时，但是基本不差，仅供参考：
 ![主流 MQ 比较（网络图）](https://torgor.github.io/styles/images/distribute/distribute-mq-compare.jpg)
 
@@ -125,8 +125,11 @@ RocketMQ 是阿里开源的一套可靠消息系统，已经捐赠 Apache 成为
 2. 唯一主键判断，数据库判断是否存在该主键记录，存在则更新，不存在则插入
 
 
-# 喜欢文章请关注我  
-> 程序领域
+
+# 喜欢文章请关注我    
+> 程序领域  
+
+**点击关注+转发，私信发送【面试】或者【资料】可以收获更多资源**
 
 ![公众号](https://torgor.github.io/styles/images/my-public-ma.png)
 
