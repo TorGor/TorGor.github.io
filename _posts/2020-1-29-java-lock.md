@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  面试官：聊聊你知道的锁
+title:  聊聊你知道的锁
 date:   2020-1-29 00:00:00 +0800
 categories: document
 tag: lock

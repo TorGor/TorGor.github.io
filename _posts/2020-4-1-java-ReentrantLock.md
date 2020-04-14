@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  并发编程: AbstractQueuedSynchronizer（AQS）使用，基于可重入锁 ReentrantLock 源码分析
+title:  AQS 都不懂怎么能说懂并发？AQS 实现手动加锁原理分析
 date:   2020-1-29 00:00:00 +0800
 categories: document
 tag: lock

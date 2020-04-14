@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  阿里面试：说说你项目里使用的 MQ ，分布式系统中 MQ 作用？
+title:  说说你项目里使用的 MQ ，分布式系统中 MQ 作用？
 date:   2020-4-3 00:00:00 +0800
 categories: document
 tag: distribute
