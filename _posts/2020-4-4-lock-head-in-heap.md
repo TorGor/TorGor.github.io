@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  Java 锁的是对象，如何实现的？加锁过程是什么？
-date:   2020-4-3 00:00:00 +0800
+date:   2020-4-4 00:00:00 +0800
 categories: document
 tag: lock
 ---
@@ -14,7 +14,7 @@ tag: lock
 嘿，还真的越深入越有趣。  
 其实对象锁是由 Synchronized 来进行操控的，因为由虚拟机运行加锁步骤，而各种解释都是非常抽象，
 所以很多人堆底层原理不是很理解。  
-如果想理解手动加锁过程，可以看看这篇介绍《》[]()
+如果想理解手动加锁过程，可以看看这篇介绍[《AQS 都不懂怎么能说懂并发？AQS 实现手动加锁原理分析》](https://torgor.github.io/2020/01/28/java-ReentrantLock/)
 
 
 # 对象在堆的内存结构
@@ -24,7 +24,9 @@ JVM 中的堆内存我们都知道是用来存储 Java 实例化对象的。到�
 因为同一个类的对象拥有各自的成员变量，存储在各自的堆中，但是他们共享该类的方法，并不是创建新的对象就复制一份方法，方法都保存在方法区中。  
 在堆中只会存储成员方法的地址，在调用的时候，根据地址去方法区中执行对应的成员方法。
 
-堆中的数据结构：  
+堆中的数据结构：
+![jvm-heap-oop-structure.png](https://torgor.github.io/styles/images/jmm/jvm-heap-oop-structure.png)  
+
 
 
 Java对象保存在内存中时，由以下三部分组成：
@@ -33,7 +35,7 @@ Java对象保存在内存中时，由以下三部分组成：
 3. 对齐填充字节
 
 对象头的内存结构：
-![Mark Word](https://torgor.github.io/styles/images/jmm/heap-object-head-structure.png)
+![Mark Word，来源网络](https://torgor.github.io/styles/images/jmm/heap-object-head-structure.png)
 
 
 
