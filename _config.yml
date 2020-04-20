@@ -1,12 +1,12 @@
 # Site settings
-name: Less Or More
+name: 公众号：程序领域
 email: holyplace@163.com
 author: Holy place
 url: http://www.bolocloud.com
 resume_site: https://github.com/TorGor/
 github: https://github.com/TorGor/
 #baseurl: "/LessOrMore"
-description: welcome
+description: 更有趣的学习交流请关注公众号，资料免费分享中！
 meta_description: holy:技术大道上开拓前进！
 motto: 技术大道上开拓前进
 banner: 技术控
