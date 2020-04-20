@@ -58,7 +58,7 @@ tag: SSL
  ![certbot 选择使用的服务](https://torgor.github.io/styles/images/ssl/ssl-certbot.png)
  
  
- 大名顶顶 Lets encrypt。
+ 大名鼎鼎 Lets encrypt。
  我下面以 centos 为例写一下，其他的系统可以参考官网使用教程命令执行。
 
  1. 安装：    
