@@ -15,7 +15,7 @@ tag: distribute
 呦呵，背后可能又是一堆人背锅了。  
 我也特别喜欢吐槽，我觉得正确的吐槽姿势有助于系统的良性发展，就像父母的爱强烈扎刺着程序员面临崩溃的心灵，并浇灌给系统茁壮成长。 
   
-![公众号](https://torgor.github.io/styles/images/biaoqingbao/xintai-hao.png)
+![心态](https://torgor.github.io/styles/images/biaoqingbao/xintai-hao.png)
 
 系统稳定，快速，美如画谁都想追求，可是往往美好的东西后面代价也不小。  
 追求可靠，我就要集群部署，容错容灾，那么就需要更多的机器设施及其他附属服务。   
@@ -36,6 +36,8 @@ tag: distribute
 上面的介绍中，我基本扒出了 redis 的主要特点，外衣都给你扒了，这么赤裸的诱惑你们都不要吗？觉得还是不够吸引吗?
 那我们就继续来扒拉扒拉。。。
 
+![心态](https://torgor.github.io/styles/images/biaoqingbao/tuoyifu.png)
+
 # 内存
 
 Redis 都是通过计算机内存来存取的，这点都知道吧，不用多解释。它为什么快？  
@@ -50,123 +52,39 @@ JMM java 中的内存模型大家了解吧，java 中每个线程会有自己的
 本身还支持零拷贝技术，并且这里都是纯内存操作，所有的数据操作都非常快。那么究竟有多快呢，一秒真男人：10 w/s。
 当然数据只能是小数据流量的。
 
-# redis 支持的数据类型及应用场景
+# redis 实现系统的接口幂等控制   
 
-redis 比 memcached 的优点多，其中有一个就是支持多种数据格式。
-下面看下具体的数据格式操作：
+每个工程师都应该知道接口幂等的重要性，在分布式系统中，接口幂等的设计原则贯彻始终。  
+所谓接口幂等就是无论我在某个业务执行过程中调用多少次接口，得到的结果都应该和调用一次接口得到的结果一样。  
+因此我们知道查询、删除这些是天然幂等的，没有必要再做幂等性控制。  
+那么一般哪些接口需要实现幂等控制呢？redis 是起了什么作用？   
 
-* String 
-```
-#设值
-set stra aa
+* 新增接口
+* 更新接口
 
-#取值
-get stra 
+redis 的串行机制，可以帮助我们轻松实现接口幂等性控制。我们在访问接口的时候，通过设置唯一性的 key token 来判断，
+如果 redis 当前存有该 key 和 token， 那么就不执行业务逻辑，如果不存在则继续执行业务逻辑。
+
+![心态](https://torgor.github.io/styles/images/redis/redis-api-idempotent.png)
+
+以上是一个简单的系统访问流程图，先执行的接口因为没有对应的 token 值，所以会继续执行业务，
+而另一个接口因为其他的接口没有执行结束，没有删除对应的 key value，所以不会执行资源操作。  
+实际的系统中，我们可能不会在每个接口中都通过这么一个逻辑来判断，而是通过拦截器、自定义注解来实现同一的判断逻辑.
+
+当然 redis 不是唯一的方式来确保接口幂等，接口幂等的设计还可以通过数据库去重表、表中的状态机 等机制来实现。  
+
+
+
+
+
+
+
+可以在接口中使用 setnx 来设置唯一值，
+当再次访问该接口的时候，会再次调用 setnx 来判断是否有值， 如果设置成功返回 1 ，有值设置失败返回 0；
+setnx： set if not exit
+
+
  
-#查看所有key
-keys * 
-
-```
-string 适用场景：  
-1. 计数器
-2. json 格式对象信息
-3. 接口幂等性控制，根据唯一标识
-4. 分布式锁 setnx 
-
-![keys 命令](https://torgor.github.io/styles/images/redis/redis-key-command.png)
-
-* List
-```
-#设值-从左侧开始 push
-lpush mylist value [value ...]
-
-#取值-指定长度（会从左边开始取）
-lrange mylist 0 1 
-
-#查看 list 长度
-llen mylist
-
-```
-
-从上面也看出来了，list 其实是 linked list 结构。这样的结构方便插入和查询。  
-list 适用场景：  
-1. 评论、商品等列表数据的缓存
-2. 当作消息队列存储
-
-![List 命令](https://torgor.github.io/styles/images/redis/redis-list-command.png)
-
-* sets
-```
-#设值
-sadd myset a b c d e f g 
-
-#取值
-smembers myset
-
-#合并 set 到新的 set 中，
-#集群中会报  don't hash to the same slot ，意思是不在一个hash 槽中
-#可以适用 Hash Tag 指定到同一槽中.
-#Hash Tag 允许用key的部分字符串来计算hash。 sadd {myset}1 value 
-sunionstore myustore myset1 myset2
-```
-这里因为我本地使用了 redis 集群来测试，遇到了 don't hash to the same slot 异常。  
-为什么会有这个异常这里我觉得有必要解释下，因为 redis 的集群是通过 hash 值计算确定存放哪个机器上的。  
-redis 集群待会介绍。  
-
-Hash Tag 允许用 key 的部分字符串来计算 hash，那么怎么截取这部分字符串呢，就适用特殊字符 {}。  
-当一个key包含 {} 的时候，就不对整个key做hash，而仅对 {} 包括的字符串做hash。  
-
-```
-sadd {myset}1 a b c
-sadd {myset}2 a b c
-```
-
-![set 命令](https://torgor.github.io/styles/images/redis/redis-sets-command.png)
-
-* sort set
-```
-#设值
-zadd {myZset}1 1 a 2 b 3 c 4 d
-
-#范围取值 0-3
-zrange {myZset}1 0 3
-```
-ZADD 参数（options） (>= Redis 3.0.2)  
-ZADD 命令在key后面分数/成员（score/member）对前面支持一些参数：  
-
-* XX: 仅仅更新存在的成员，不添加新成员。
-* NX: 不更新存在的成员。只添加新成员。
-* CH: 修改返回值为发生变化的成员总数，原始是返回新添加成员的总数 (CH 是 changed 的意思)。  
-更改的元素是新添加的成员，已经存在的成员更新分数。 所以在命令中指定的成员有相同的分数将不被计算在内。  
-注：在通常情况下，ZADD返回值只计算新添加成员的数量。
-* INCR: 当ZADD指定这个选项时，成员的操作就等同ZINCRBY命令，对成员的分数进行递增操作。
-
-zset 适用场景：  
-1. 排行榜
-2. 
-
-![zset 命令](https://torgor.github.io/styles/images/redis/redis-zset-command.png)
-
-* hash
-```
-#设值
-192.168.244.88:7002> hmset myhash user holy name place age 13
--> Redirected to slot [9295] located at 192.168.244.88:7001
-OK
-192.168.244.88:7001> hget myhash user
-"holy"
-192.168.244.88:7001> hget myhash name
-"place"
-192.168.244.88:7001> hget myhash age
-"13"
-192.168.244.88:7001> 
-
-```
-hash 适用场景：  
-1. 对象存储，适合经常改变属性的对象
-
-![hash 命令](https://torgor.github.io/styles/images/redis/redis-hash-command.png)
-
 
 # 喜欢文章请关注我  
   
