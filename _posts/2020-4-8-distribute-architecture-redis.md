@@ -145,6 +145,40 @@ redis string 类型有个方法可以在接口中使用， setnx ： set if not 
 * 一旦服务不可用，即使恢复服务，也无法恢复 session
 * session 管理困难
 
+因此引入 session 共享被广泛的应用，redis 就是非常好的一种选择，而且据说和 spring session 完美结合。
+这个非常简单，以前使用 springboot 1.5 的时候是通过引入依赖，添加配置进行的，这里简单贴下代码，
+springboot 2.X 的应该差不多，支持应该只会更好、更简单的配置。
+
+```
+        <!-- spring session redis -->
+		<dependency>
+			<groupId>org.springframework.session</groupId>
+			<artifactId>spring-session-data-redis</artifactId>
+		</dependency>
+```
+
+```
+#  ============ srping session ============
+spring.session.store-type=redis
+spring.session.redis.flush-mode=on_save
+spring.session.redis.namespace=madmin
+
+```
+
+```java
+
+@EnableRedisHttpSession(maxInactiveIntervalInSeconds = 10800)
+@SpringBootApplication
+public class Application {
+	
+	public static void main(String[] args) {
+		SpringApplication.run(Application.class, args);
+	}
+	
+}
+
+```
+
 ![redis 缓存中间件架构](https://torgor.github.io/styles/images/redis/redis-session-manager.png)  
 
 # redis 在架构中的缓存中间件
