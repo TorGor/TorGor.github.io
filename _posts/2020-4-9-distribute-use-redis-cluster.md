@@ -1,18 +1,14 @@
 ---
 layout: post
-title:  redis 集群使用指南
+title:  redis 集群搭建方式：docker-compose + 传统模式(未完待续)
 date:   2020-4-9 00:00:00 +0800
 categories: document
 tag: distribute
 ---
 
->开篇思考
-1. Redis 数据类型的使用场景？
-2. Redis 集群是如何工作的？
-3. Redis 如何确保主从同步？
-4. Redis 哨兵模式？
+要偷懒用 docker，因此极力推荐使用 docker-compose 一键式命令启动。
 
-
+# docker-compose 启动 redis sentinel 高可用
 
 # redis 支持的数据类型及应用场景
 
