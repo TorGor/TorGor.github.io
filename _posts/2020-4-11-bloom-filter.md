@@ -40,8 +40,21 @@ Bloom filter 是由 Howard Bloom 在 1970 年提出的二进制向量数据结�
 * n ：预估的需要过滤的总数量
 
  下面我们以数字 11 为例来使用，有个网站可以测试布隆过滤器，
+ [在线测试布隆](https://www.jasondavies.com/bloomfilter/)
  
  ![11 过滤](https://torgor.github.io/styles/images/redis/bloom-filter-step-11.png)  
+ 
+# 布隆过滤器的优点、缺点
+优点：  
+* 节省空间，不用保存所有数据，知识通过 hash 值来计算位置，并通过 byte[] 记录下来。
+* 速度快，时间复杂度低 O(1);
+
+缺点：  
+* 精度低，假设：a 计算的位置 1 ，3 ；b 计算的位置 5，7；c 计算的位置 1，7，那么 c 一定存在吗？
+* 不能直接删除，因为想要删除就要把对应的位置置为 0 ，如果这样做，可能会影响其他值的过滤。
+
+
+ ![11 过滤](https://torgor.github.io/styles/images/redis/bloom-filter-conflict.png)  
 
 # 喜欢文章请关注我  
   
