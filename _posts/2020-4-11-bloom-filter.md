@@ -44,7 +44,8 @@ Bloom filter 是由 Howard Bloom 在 1970 年提出的二进制向量数据结�
  
  ![11 过滤](https://torgor.github.io/styles/images/redis/bloom-filter-step-11.png)  
  
-# 布隆过滤器的优点、缺点
+# 布隆过滤器的优点、缺点  
+
 优点：  
 * 节省空间，不用保存所有数据，知识通过 hash 值来计算位置，并通过 byte[] 记录下来。
 * 速度快，时间复杂度低 O(1);
