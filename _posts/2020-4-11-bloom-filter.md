@@ -53,8 +53,71 @@ Bloom filter 是由 Howard Bloom 在 1970 年提出的二进制向量数据结�
 * 精度低，假设：a 计算的位置 1 ，3 ；b 计算的位置 5，7；c 计算的位置 1，7，那么 c 一定存在吗？
 * 不能直接删除，因为想要删除就要把对应的位置置为 0 ，如果这样做，可能会影响其他值的过滤。
 
-
  ![11 过滤](https://torgor.github.io/styles/images/redis/bloom-filter-conflict.png)  
+ 
+ # 布隆过滤器实现
+ 
+ 这个其实在 google guava 包中有现成的实现，不用我们自己去实现。我们看看是怎么实现的；
+ 
+ ```java
+    /**
+    * 计算 bit 数组的长度公式
+    * n ： 预估数据量
+    * p ： 误差率 0-1
+    */
+    @VisibleForTesting
+    static long optimalNumOfBits(long n, double p) {
+        if (p == 0.0D) {
+            p = 4.9E-324D;
+        }
+
+        return (long)((double)(-n) * Math.log(p) / (Math.log(2.0D) * Math.log(2.0D)));
+    }
+```
+
+ ```java
+    /**
+    * 计算 hash 函数个数的方法
+    * n ： 预估数据量
+    * m ： bit 数组长度
+    */
+    @VisibleForTesting
+    static int optimalNumOfHashFunctions(long n, long m) {
+        return Math.max(1, (int)Math.round((double)(m / n) * Math.log(2.0D)));
+    }
+```
+
+# 动手玩一玩 
+* expectedInsertions 代表预估数量，越大越准确，在下面的例子中，可以自己随意设置 p 值，过小会发现后面会返回 true
+* fpp ： 误差率 0-1
+
+
+```java
+
+import com.google.common.base.Charsets;
+import com.google.common.hash.BloomFilter;
+import com.google.common.hash.Funnels;
+
+public class BloomFilterTest {
+
+    public static void main(String[] args) {
+
+        int expectedInsertions = 800000000;
+        double fpp = 0.00001;
+
+        BloomFilter<CharSequence> bloomFilter = BloomFilter.create(Funnels.stringFunnel(Charsets.UTF_8), expectedInsertions, fpp);
+        int i = 10000;
+        while (i > 1){
+            bloomFilter.put("aa" + i);
+            System.out.println(bloomFilter.mightContain("ab" + i));
+            i--;
+        }
+
+    }
+}
+
+
+```
 
 # 喜欢文章请关注我  
   
