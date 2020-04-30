@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  redis 集群搭建方式：docker-compose + 传统模式(未完待续)
-date:   2020-4-9 00:00:00 +0800
+date:   2020-4-6 00:00:00 +0800
 categories: document
 tag: distribute
 ---
