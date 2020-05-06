@@ -6,6 +6,10 @@ categories: document
 tag: distribute
 ---
 
+* content
+{:toc}
+
+
 >开篇思考
 1. Redis 为什么在系统中使用？解决了哪些问题？
 2. Redis 如何保证和数据库同步？
