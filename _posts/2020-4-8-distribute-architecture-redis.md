@@ -97,7 +97,7 @@ redis string 类型有个方法可以在接口中使用， setnx ： set if not 
 下面的例子是基于 lettuce 连接的 RedisTemplete 设置锁代码，其中 tryLock 是伪代码，具体使用根据实际情况。  
 
 ```java
-/**
+    /**
      * 尝试获取锁 ，并返回结果
      * @param key
      * @param value
