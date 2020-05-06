@@ -6,6 +6,9 @@ categories: document
 tag: lock
 ---
 
+* content
+{:toc}
+
 >开篇思考
 1.	你知道哪些锁？
 2.	锁解决了哪些应用场景的问题？

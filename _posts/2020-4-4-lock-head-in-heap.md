@@ -6,6 +6,9 @@ categories: document
 tag: lock
 ---
 
+* content
+{:toc}
+
 >开篇思考  
 1. 对象在堆中的数据结构？和锁有什么关系？
 2. 对象的锁是如何升级的？

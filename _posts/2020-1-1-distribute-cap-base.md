@@ -6,6 +6,9 @@ categories: document
 tag: distribute
 ---
 
+* content
+{:toc}
+
 # 1. CAP 理论
 ![distribute-cap](https://torgor.github.io/styles/images/distribute/cap-circle.png) 
 

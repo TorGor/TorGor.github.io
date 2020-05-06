@@ -6,6 +6,9 @@ categories: document
 tag: distribute
 ---
 
+* content
+{:toc}
+
 >开篇思考
 1. MQ 为什么在系统中使用？一定要在分布式系统中使用吗？
 2. MQ 有哪些中间件？他们有哪些特点？

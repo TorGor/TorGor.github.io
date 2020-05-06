@@ -6,6 +6,9 @@ categories: document
 tag: lock
 ---
 
+* content
+{:toc}
+
 >开篇思考
 1. 为什么要分布式事务？
 2. 分布式事务有哪些实现方式？哪种可靠？

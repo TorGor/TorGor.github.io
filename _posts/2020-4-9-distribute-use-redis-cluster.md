@@ -6,6 +6,9 @@ categories: document
 tag: distribute
 ---
 
+* content
+{:toc}
+
 要偷懒用 docker，因此极力推荐使用 docker-compose 一键式命令启动。
 
 # docker-compose 启动 redis sentinel 高可用
