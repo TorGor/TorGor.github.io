@@ -11,8 +11,8 @@ tag: springboot
 
 
 
-ThreadPoolTaskExecutor	
-===
+# ThreadPoolTaskExecutor  	
+
 Springframework 提供的线程池处理类，可以帮助我们利用线程池管理线程。
 
 参数：
@@ -26,8 +26,8 @@ Springframework 提供的线程池处理类，可以帮助我们利用线程池�
   
 * rejectedExecutionHandler：对拒绝task的处理策略，发生在队列已满，且超出了最大线程数后
 
-execute(Runable)方法执行过程
-===
+# execute(Runable)方法执行过程   
+
 * 线程池中的数量小于corePoolSize，即使线程池中的线程都处于空闲状态，也要创建新的线程来处理被添加的任务。
 
 * 线程池中的数量等于 corePoolSize，但是缓冲队列 workQueue未满，那么任务被放入缓冲队列。
@@ -41,8 +41,7 @@ execute(Runable)方法执行过程
 * 线程池中的数量大于corePoolSize时，如果某线程空闲时间超过keepAliveTime，线程将被终止。这样，线程池可以动态的调整池中的线程数。
 
 
-策略
-===
+# 策略
 1. AbortPolicy （终止执行）：默认策略， Executor会抛出一个RejectedExecutionException 
 运行异常到调用者线程来完成终止。
 
@@ -55,16 +54,14 @@ execute(Runable)方法执行过程
 则丢弃工作队列的最近的一个任务，然后执行当前任务。
 
 
-配置线程数依据
-===
+# 配置线程数依据  
 
 * CPU密集型任务，那么线程池的线程个数应该尽量少一些，一般为CPU的个数+1条线程。
 * IO密集型任务，那么线程池的线程可以放的很大，如2*CPU的个数。
 * 混合型任务，如果可以拆分的话，通过拆分成 CPU密集型 和 IO密集型 两种来提高执行效率；
 如果不能拆分的的话就可以根据实际情况来调整线程池中线程的个数。
 
-Springboot 配置
-===
+# Springboot 配置
 
 ```java
 @Configuration
