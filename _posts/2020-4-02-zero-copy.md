@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  疯狂补漏零拷贝，到底是为了什么？
-date:   2020-4-10 00:00:00 +0800
+title:  零拷贝的应用和思考
+date:   2020-4-02 00:00:00 +0800
 categories: document
 tag: distribute
 ---
