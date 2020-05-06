@@ -11,7 +11,9 @@ tag: distribute
 
 要偷懒用 docker，因此极力推荐使用 docker-compose 一键式命令启动。
 
-# docker-compose 启动 redis sentinel 高可用
+# docker-compose 启动 redis sentinel 高可用  
+
+docker 是所有偷懒方式中最爽的一个。
 
 # redis 支持的数据类型及应用场景
 
