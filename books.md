@@ -20,9 +20,9 @@ permalink: /books/
 
 + 《重构》
 + 《Head first设计模式》
-+ 《Think in java》
-
-# 2018-2019 书单  
-
 + 《Effective Java》
+
+# 2016 以前书单  
++ 《Think in Java》
 + 《Maven实战》
++ 《Java web 编程》
