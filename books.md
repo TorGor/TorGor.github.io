@@ -8,21 +8,23 @@ permalink: /books/
 {:toc}
 
 
-# 2020书单
+# 2020 书单
 
 + 《Go Web 编程》
-+ 《Java并发编程》
-+ 《深入JVM虚拟机》
++ 《Java 并发编程》
++ 《深入 JVM 虚拟机》
 + 《算法(第四版)》
-+ 《Java程序性能优化》
++ 《Java 程序性能优化》
 
-# 2019 书单  
+# 2018-2019 书单  
 
 + 《重构》
-+ 《Head first设计模式》
 + 《Effective Java》
++ 《Java 设计模式》
 
-# 2016 以前书单  
+# 2017 以前书单  
+
++ 《Head first设计模式》
 + 《Think in Java》
 + 《Maven实战》
 + 《Java web 编程》
