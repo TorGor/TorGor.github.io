@@ -11,7 +11,7 @@ tag: alibaba
 
 ## Arthas
 
-![arthas](site/src/site/sphinx/arthas.png)
+![arthas](https://gitee.com/arthas/arthas/raw/master/site/src/site/sphinx/arthas.png)
 
 `Arthas` 是Alibaba开源的Java诊断工具，深受开发者喜爱。
 
@@ -90,7 +90,7 @@ Gitee文档镜像： https://arthas.gitee.io/
 
 * https://alibaba.github.io/arthas/dashboard
 
-![dashboard](site/src/site/sphinx/_static/dashboard.png)
+![dashboard](https://gitee.com/arthas/arthas/raw/master/site/src/site/sphinx/_static/dashboard.png)
 
 #### Thread
 
@@ -265,7 +265,7 @@ ts=2018-09-18 10:11:45;thread_name=http-bio-8080-exec-10;id=d9;is_daemon=true;pr
 
 观察方法执行的时候哪个子调用比较慢:
 
-![trace](site/src/site/sphinx/_static/trace.png)
+![trace](https://gitee.com/arthas/arthas/raw/master/site/src/site/sphinx/_static/trace.png)
 
 #### Watch
 
@@ -355,7 +355,7 @@ $ classloader
 
 * https://alibaba.github.io/arthas/web-console
 
-![web console](site/src/site/sphinx/_static/web-console-local.png)
+![web console](https://gitee.com/arthas/arthas/raw/master/site/src/site/sphinx/_static/web-console-local.png)
 
 #### Profiler/FlameGraph/火焰图
 
