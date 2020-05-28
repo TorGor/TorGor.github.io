@@ -61,7 +61,7 @@ tag: SSL
  大名鼎鼎 Lets encrypt。
  我下面以 centos 为例写一下，其他的系统可以参考官网使用教程命令执行。
 
- 1. 安装：   
+* 安装  
   
 ```
     $ yum -y install yum-utils
@@ -70,13 +70,13 @@ tag: SSL
 
 ```
 
- 2. 开始
+* 开始  
  
 ```
     $ sudo certbot --nginx
 ```
 
- 3. 刷新证书
+* 刷新证书  
  
 ```
     $ sudo certbot renew --dry-run
