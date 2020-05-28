@@ -10,17 +10,20 @@ permalink: /books/
 
 # 2020 书单
 
-+ 《Go Web 编程》
-+ 《Java 并发编程》
++ 《Go Web 编程》 
 + 《深入 JVM 虚拟机》
 + 《算法(第四版)》
-+ 《Java 程序性能优化》
 
 # 2018-2019 书单  
 
 + 《重构》
 + 《Effective Java》
 + 《Java 设计模式》
++ 《领域驱动设计》
++ 《深入浅出Java多线程》
++ 《Java 并发编程》
++ 《Java 程序性能优化》
++ 《高性能 MySQL》
 
 # 2017 以前书单  
 

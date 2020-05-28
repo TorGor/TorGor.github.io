@@ -61,7 +61,8 @@ tag: SSL
  大名鼎鼎 Lets encrypt。
  我下面以 centos 为例写一下，其他的系统可以参考官网使用教程命令执行。
 
- 1. 安装：    
+ 1. 安装：   
+  
 ```
     $ yum -y install yum-utils
     $ yum-config-manager --enable rhui-REGION-rhel-server-extras rhui-REGION-rhel-server-optional
@@ -76,6 +77,7 @@ tag: SSL
 ```
 
  3. 刷新证书
+ 
 ```
     $ sudo certbot renew --dry-run
 ```
@@ -95,6 +97,7 @@ tag: SSL
 ## 异常解决
 
 1. 安装异常 AttributeError: 'module' object has no attribute 'pyopenssl'
+
  ``` 
     Traceback (most recent call last):
       File "/bin/certbot", line 9, in <module>
@@ -113,6 +116,7 @@ tag: SSL
         urllib3.contrib.pyopenssl.inject_into_urllib3()
     AttributeError: 'module' object has no attribute 'pyopenssl'
  ```
+
  解决方案：
  
  ``` 
