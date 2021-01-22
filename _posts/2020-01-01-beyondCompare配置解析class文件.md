@@ -1,3 +1,14 @@
+---
+layout: post
+title:  代码对比工具
+date:   2020-01-01 00:00:00 +0800
+categories: document
+tag: tools
+---
+
+* content
+{:toc}
+
 **1.下载配置**  <br/>
 [BeyondCompare配置下载中心](https://www.scootersoftware.com/download.php?zz=moreformats) 
 
