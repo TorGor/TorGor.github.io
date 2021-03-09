@@ -134,15 +134,10 @@ Kafka 的索引文件使用的是 mmap + write 方式，数据文件使用的是
 
 # mmap 和 sendFile 的区别。
 
-mmap 适合小数据量读写，sendFile 适合大文件传输。
-mmap 需要 4 次上下文切换，3 次数据拷贝；sendFile 需要 3 次上下文切换，最少 2 次数据拷贝。
-sendFile 可以利用 DMA 方式，减少 CPU 拷贝，mmap 则不能（必须从内核拷贝到 Socket 缓冲区）。
+mmap 适合小数据量读写，sendFile 适合大文件传输。  
+mmap 需要 4 次上下文切换，3 次数据拷贝；sendFile 需要 3 次上下文切换，最少 2 次数据拷贝。  
+sendFile 可以利用 DMA 方式，减少 CPU 拷贝，mmap 则不能（必须从内核拷贝到 Socket 缓冲区）。  
 在这个选择上：rocketMQ 在消费消息时，使用了 mmap。kafka 使用了 sendFile。
-
-作者：莫那一鲁道
-链接：https://www.jianshu.com/p/275602182f39
-来源：简书
-著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
 
 # 喜欢文章请关注我  
