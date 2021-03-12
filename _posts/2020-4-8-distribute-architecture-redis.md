@@ -241,8 +241,6 @@ redis 的特性天然的成为了缓存中间件的首选。
 
 ![公众号](https://torgor.github.io/styles/images/my-public-ma.png)
 
-![赞赏码](https://torgor.github.io/styles/images/my-zanshang-ma.png)
-
 
 
 

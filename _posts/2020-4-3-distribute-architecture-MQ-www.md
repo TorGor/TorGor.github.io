@@ -136,7 +136,6 @@ RocketMQ 是阿里开源的一套可靠消息系统，已经捐赠 Apache 成为
 
 ![公众号](https://torgor.github.io/styles/images/my-public-ma.png)
 
-![赞赏码](https://torgor.github.io/styles/images/my-zanshang-ma.png)
 
 
 

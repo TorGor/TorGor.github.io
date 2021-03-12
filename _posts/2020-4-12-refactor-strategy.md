@@ -3,7 +3,7 @@ layout: post
 title:  重构-代码中的坏味道如何去除
 date:   2020-3-11 00:00:00 +0800
 categories: document
-tag: distribute
+tag: design
 ---
 
 >开篇思考：哪些坏味道

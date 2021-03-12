@@ -132,7 +132,7 @@ Kafka 的索引文件使用的是 mmap + write 方式，数据文件使用的是
 
 ![公众号](https://torgor.github.io/styles/images/zerocopy/zero-copy-traditional.png)
 
-# mmap 和 sendFile 的区别。
+# Java 中的 mmap 和 sendFile 的区别。
 
 mmap 适合小数据量读写，sendFile 适合大文件传输。  
 mmap 需要 4 次上下文切换，3 次数据拷贝；sendFile 需要 3 次上下文切换，最少 2 次数据拷贝。  
@@ -147,7 +147,6 @@ sendFile 可以利用 DMA 方式，减少 CPU 拷贝，mmap 则不能（必须�
 
 ![公众号](https://torgor.github.io/styles/images/my-public-ma.png)
 
-![赞赏码](https://torgor.github.io/styles/images/my-zanshang-ma.png)
 
 
 

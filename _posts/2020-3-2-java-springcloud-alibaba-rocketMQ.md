@@ -315,7 +315,6 @@ spring:
 > 程序领域
 
 ![公众号](https://torgor.github.io/styles/images/my-public-ma.png)
-![赞赏码](https://torgor.github.io/styles/images/my-zanshang-ma.png)
 
 
 

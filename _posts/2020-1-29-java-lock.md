@@ -308,5 +308,3 @@ AQS 的核心功能，就是用来将当前工作的线程设置为占有资源�
 **点击关注+转发，私信发送【面试】或者【资料】可以收获更多资源**
 
 ![公众号](https://torgor.github.io/styles/images/my-public-ma.png)
-
-![赞赏码](https://torgor.github.io/styles/images/my-zanshang-ma.png)
